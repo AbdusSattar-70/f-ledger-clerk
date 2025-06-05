@@ -8,7 +8,13 @@ export const ROUTES = {
   DASHBOARD_MEMBER: "/dashboard/member",
 };
 
-export const AUTH_TEXT = { a: "Handled by Clerk" };
+export const API_ROUTES = {
+  CURRENT_USER: "/api/users/current",
+};
+
+export const USERS_DB_PATHS = {
+  userDoc: (id: string | undefined) => `users/${id}`,
+};
 
 // Typing sentences
 export const SENTENCES = [
