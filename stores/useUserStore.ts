@@ -1,12 +1,14 @@
 import { create } from "zustand";
-import { User } from "@/lib/types/user";
+import { UserStore } from "@/lib/types/user";
+import { persist } from "zustand/middleware";
 
-type UserStore = {
-  user: User | null;
-  setUser: (user: User) => void;
-};
-
-export const useUserStore = create<UserStore>((set) => ({
-  user: null,
-  setUser: (user) => set({ user }),
-}));
+export const useUserStore = create<UserStore>()(
+  persist(
+    (set) => ({
+      user: null,
+      setUser: (user) => set({ user }),
+      clearUser: () => set({ user: null }),
+    }),
+    { name: "user-store" }
+  )
+);
