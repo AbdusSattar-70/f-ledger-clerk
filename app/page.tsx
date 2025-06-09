@@ -1,15 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HeroVideo } from "@/components/shared/hero-video";
 import LogoIcon from "@/components/shared/logo";
 import { ROUTES } from "@/lib/utils/constant";
 import Link from "next/link";
-import { ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
-
-declare global {
-  interface Window {
-    Clerk: any;
-  }
-}
+import { ClerkLoadingButton } from "@/components/shared/clerk-loading-button";
 
 export default function HomePage() {
   return (
@@ -29,21 +22,14 @@ export default function HomePage() {
             </span>
           </span>
         </div>
-        <>
-          <ClerkLoading>
-            <div className="px-5 py-2.5 text-lg font-medium text-white bg-blue-800 border border-blue-700 rounded-lg hover:bg-transparent hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:text-white dark:border-blue-500 dark:hover:bg-transparent dark:hover:text-blue-500 dark:focus:ring-blue-800 text-center">
-              Start Your Free Trial
-            </div>
-          </ClerkLoading>
-          <ClerkLoaded>
-            <Link
-              href={ROUTES.AUTH}
-              className="px-5 py-2.5 text-lg font-medium text-white bg-blue-800 border border-blue-700 rounded-lg hover:bg-transparent hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:text-white dark:border-blue-500 dark:hover:bg-transparent dark:hover:text-blue-500 dark:focus:ring-blue-800 text-center"
-            >
-              Start Your Free Trial
-            </Link>
-          </ClerkLoaded>
-        </>
+        <ClerkLoadingButton>
+          <Link
+            href={ROUTES.AUTH}
+            className="px-5 py-2.5 text-lg font-medium text-white bg-blue-800 border border-blue-700 rounded-lg hover:bg-transparent hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:text-white dark:border-blue-500 dark:hover:bg-transparent dark:hover:text-blue-500 dark:focus:ring-blue-800 text-center"
+          >
+            Start Your Free Trial
+          </Link>
+        </ClerkLoadingButton>
       </div>
     </div>
   );
