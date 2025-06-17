@@ -3,9 +3,7 @@ export const ROUTES = {
   AUTH: "/auth",
   SIGN_IN: "/auth/sign-in",
   SIGN_UP: "/auth/sign-up",
-  USER_PROFILE: "/auth/user-profile",
-  DASHBOARD_LEADER: "/dashboard/leader",
-  DASHBOARD_MEMBER: "/dashboard/member",
+  DASHBOARD: "/dashboard",
 };
 
 export const API_ROUTES = {

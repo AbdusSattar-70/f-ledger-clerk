@@ -1,6 +1,6 @@
 "use client";
 
-import { BadgeCheck, ChevronsUpDown, LogOut } from "lucide-react";
+import { ChevronsUpDown, LogOut, Settings } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -18,12 +18,11 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { SignOutButton, useUser } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
-import { ROUTES } from "@/lib/utils/constant";
+import { useUser } from "@clerk/nextjs";
+import { SignOutAlert } from "./sign-out-alert";
+import { UserProfileSheet } from "./user-profile-sheet";
 
 export function NavUser() {
-  const router = useRouter();
   const { isMobile } = useSidebar();
   const { user } = useUser();
   if (!user) return null;
@@ -72,18 +71,20 @@ export function NavUser() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem
-                onClick={() => router.push(ROUTES.USER_PROFILE)}
-              >
-                <BadgeCheck />
-                Manage Account
-              </DropdownMenuItem>
+              <UserProfileSheet>
+                <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                  <Settings />
+                  Manage Account
+                </DropdownMenuItem>
+              </UserProfileSheet>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LogOut />
-              <SignOutButton />
-            </DropdownMenuItem>
+            <SignOutAlert>
+              <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                <LogOut />
+                Sign Out
+              </DropdownMenuItem>
+            </SignOutAlert>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

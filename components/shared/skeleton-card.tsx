@@ -1,6 +1,6 @@
 export function SkeletonCard() {
   return (
-    <div className="flex items-center justify-center h-screen bg-[#1e1f5a] text-white">
+    <div className="flex items-center justify-center h-screen bg-background text-white">
       <div className="relative w-60 h-60">
         {/* Spinning Outer Border */}
         <div
