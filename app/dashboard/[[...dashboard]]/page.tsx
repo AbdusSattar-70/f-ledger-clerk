@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/member/app-sidebar";
+import { AppSidebar } from "@/components/dashboard/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,8 +13,12 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-
-export default function MemberPage() {
+import { ROUTES } from "@/lib/utils/constant";
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+export default async function DashboardPage() {
+  const user = await currentUser();
+  if (!user) redirect(ROUTES.AUTH);
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -29,13 +33,11 @@ export default function MemberPage() {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Dashboard for Member User
-                  </BreadcrumbLink>
+                  <BreadcrumbLink href="#">Dashboard for Leader</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>General Dashboard Page</BreadcrumbPage>
+                  <BreadcrumbPage>Main Dashboard</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>

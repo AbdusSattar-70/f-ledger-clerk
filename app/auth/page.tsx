@@ -4,6 +4,7 @@ import { DollarAnimation } from "@/components/shared/dollar-animation";
 import { SignInButton, SignUpButton } from "@clerk/nextjs";
 import { Lock } from "lucide-react";
 import { TooltipCustom } from "@/components/shared/tooltip-custom";
+import { ROUTES } from "@/lib/utils/constant";
 
 export default function AuthHomePage() {
   return (
@@ -38,12 +39,22 @@ export default function AuthHomePage() {
             <h2 className="text-white text-2xl font-bold mb-4">Get started</h2>
 
             <div className="flex flex-row gap-4 mt-4 mb-6">
-              <SignInButton>
+              <SignInButton
+                forceRedirectUrl={
+                  process.env.NEXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL ??
+                  ROUTES.DASHBOARD
+                }
+              >
                 <div className="cursor-pointer px-5 py-2.5 text-sm font-medium text-blue-700 border border-blue-700 rounded-lg hover:bg-blue-800 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800 text-center">
                   Sign In
                 </div>
               </SignInButton>
-              <SignUpButton>
+              <SignUpButton
+                forceRedirectUrl={
+                  process.env.NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL ??
+                  ROUTES.DASHBOARD
+                }
+              >
                 <div className="cursor-pointer px-5 py-2.5 text-sm font-medium text-blue-700 border border-blue-700 rounded-lg hover:bg-blue-800 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800 text-center">
                   Sign Up
                 </div>
