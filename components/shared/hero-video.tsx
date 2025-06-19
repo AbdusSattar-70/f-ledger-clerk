@@ -10,7 +10,7 @@ export const HeroVideo = () => {
         poster="/image/hero-section.webp"
         className="absolute inset-0 h-full w-full object-cover z-0"
       >
-        <source src="/hero-section.mp4" type="video/mp4" />
+        <source src="/videos/hero-section.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-black/60 z-10" />

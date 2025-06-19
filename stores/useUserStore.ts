@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { UserStore } from "@/lib/types/user";
+import { UserStore } from "@/types/user";
 import { persist } from "zustand/middleware";
 
 export const useUserStore = create<UserStore>()(

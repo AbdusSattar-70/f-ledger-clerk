@@ -14,7 +14,7 @@ import { useClerk } from "@clerk/nextjs";
 import { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
-import { ROUTES } from "@/lib/utils/constant";
+import { ROUTES } from "@/lib/constants";
 
 export function SignOutAlert({ children }: { children: ReactNode }) {
   const { signOut } = useClerk();

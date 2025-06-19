@@ -1,5 +1,5 @@
 import { SkeletonCard } from "@/components/shared/skeleton-card";
-import { ROUTES } from "@/lib/utils/constant";
+import { ROUTES } from "@/lib/constants";
 import { SignUp } from "@clerk/nextjs";
 
 const signUpPath = process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL ?? ROUTES.SIGN_UP;
