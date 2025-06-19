@@ -1,6 +1,6 @@
 import { HeroVideo } from "@/components/shared/hero-video";
 import LogoIcon from "@/components/shared/logo";
-import { ROUTES } from "@/lib/utils/constant";
+import { ROUTES } from "@/lib/constants";
 import Link from "next/link";
 import { ClerkLoadingButton } from "@/components/shared/clerk-loading-button";
 

@@ -13,7 +13,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { ROUTES } from "@/lib/utils/constant";
+import { ROUTES } from "@/lib/constants";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 export default async function DashboardPage() {

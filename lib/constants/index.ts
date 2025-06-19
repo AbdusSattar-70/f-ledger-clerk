@@ -1,3 +1,5 @@
+export const RoleEnum = ["leader", "co_leader", "member"] as const;
+
 export const ROUTES = {
   ROOT: "/",
   AUTH: "/auth",
@@ -8,10 +10,6 @@ export const ROUTES = {
 
 export const API_ROUTES = {
   CURRENT_USER: "/api/users/current",
-};
-
-export const USERS_DB_PATHS = {
-  userDoc: (id: string | undefined) => `users/${id}`,
 };
 
 // Typing sentences

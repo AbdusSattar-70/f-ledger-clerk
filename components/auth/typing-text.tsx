@@ -1,5 +1,5 @@
 "use client";
-import { SENTENCES } from "@/lib/utils/constant";
+import { SENTENCES } from "@/lib/constants";
 import { useEffect, useState } from "react";
 import { GiPencil } from "react-icons/gi";
 

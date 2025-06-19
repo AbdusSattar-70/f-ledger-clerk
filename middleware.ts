@@ -1,6 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
-import { ROUTES } from "./lib/utils/constant";
+import { ROUTES } from "@/lib/constants";
 
 const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
 

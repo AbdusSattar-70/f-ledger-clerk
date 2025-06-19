@@ -4,7 +4,7 @@ import { DollarAnimation } from "@/components/shared/dollar-animation";
 import { SignInButton, SignUpButton } from "@clerk/nextjs";
 import { Lock } from "lucide-react";
 import { TooltipCustom } from "@/components/shared/tooltip-custom";
-import { ROUTES } from "@/lib/utils/constant";
+import { ROUTES } from "@/lib/constants";
 
 export default function AuthHomePage() {
   return (
