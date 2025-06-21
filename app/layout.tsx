@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { OfflineBanner } from "@/components/shared/OfflineBanner";
+import { TanstackProviders } from "@/components/providers/tanstack-provider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -34,6 +36,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const dehydratedState = undefined;
   return (
     <ClerkProvider
       appearance={{
@@ -67,7 +70,10 @@ export default function RootLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
-            {children}
+            <TanstackProviders state={dehydratedState}>
+              {children}
+              <OfflineBanner />
+            </TanstackProviders>
           </ThemeProvider>
           <ToastContainer
             position="bottom-right"
