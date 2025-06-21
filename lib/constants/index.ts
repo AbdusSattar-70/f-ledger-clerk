@@ -1,3 +1,12 @@
+const getBaseUrl = () =>
+  process.env.NODE_ENV === "production"
+    ? "https://f-ledger-backend.vercel.app"
+    : "http://localhost:3001";
+
+export const API_ROUTES = {
+  AUTH_USER: `${getBaseUrl()}/api/auth/whoami`,
+};
+
 export const RoleEnum = ["leader", "co_leader", "member"] as const;
 
 export const ROUTES = {
@@ -6,10 +15,7 @@ export const ROUTES = {
   SIGN_IN: "/auth/sign-in",
   SIGN_UP: "/auth/sign-up",
   DASHBOARD: "/dashboard",
-};
-
-export const API_ROUTES = {
-  CURRENT_USER: "/api/users/current",
+  DB_SYNC_ERROR: "/db-sync-error",
 };
 
 // Typing sentences
@@ -23,6 +29,13 @@ export const SENTENCES = [
   "Stop arguing about money with my partner",
 ];
 
+export const STATUS = {
+  ONLINE: "online",
+  OFFLINE: "offline",
+  BACK_ONLINE: "back-online",
+} as const;
+
 export const FEEDBACK_MSG = {
-  auth: "Handled by Clerk",
-};
+  [STATUS.OFFLINE]: "Opps! You are offline.",
+  [STATUS.BACK_ONLINE]: "You're back online!",
+} as const;
